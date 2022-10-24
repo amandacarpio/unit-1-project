@@ -1,9 +1,9 @@
-# MJ's Bookclub
+# MJ's Book Club
 
 - My website will be for people who like thriller genres.
 - My URL will filter the database specifically for thriller books but users will be able to input keywords to find book more related to their interest whether it be author name, title, or descriptions and then get more details on the book.
 
-### Technologies used
+### Technologies usedWill 
 
 - HTML
 - CSS
