@@ -6,12 +6,13 @@ const $input = $("input[type=text]") // placed text input in a variable to short
 $("form").on("submit", authorSearch)
 
 // function that does thriller book search
-function authorSearch(){
-    const url = `${baseURL}q=${firstLast}+subject:thriller&key=${key}`
+function authorSearch(event){
+    event.preventDefault()
+    const url = `${baseURL}q=inauthor:${firstLast}+subject:thriller&key=${key}`
     firstLast = $input.val()
     $.ajax(url)
     .then((books) => {
-        console.log(bookData)
+        console.log(books)
         bookData = books
     })
 //     function render(){
