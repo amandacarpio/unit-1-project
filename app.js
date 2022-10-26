@@ -2,30 +2,32 @@ const key = 'AIzaSyBjROxJW481jiKnusSJF4g1Lx2b61cY9hQ'
 const baseURL = 'https://www.googleapis.com/books/v1/volumes?'
 let bookData, firstLast
 const $input = $("input[type=text]") // placed text input in a variable to shorten it/easier to read
+const $bookCover = $("#bookCover")
+const $title = $("#title")
+const $author = $("#author")
+const $synopsis = $("#synopsis")
 
 $("form").on("submit", authorSearch)
 
 // function that does thriller book search
 function authorSearch(event){
     event.preventDefault()
-    const url = `${baseURL}q=inauthor:${firstLast}+subject:thriller&key=${key}`
     firstLast = $input.val()
+    const url = `${baseURL}q=inauthor:${firstLast}+subject:thriller&key=${key}`
     $.ajax(url)
     .then((books) => {
-        console.log(books)
         bookData = books
+        console.log(bookData)
+        renderBookData()
     })
-//     function render(){
+}
 
-//     }
+function renderBookData(){
+    $bookCover.html(`<img src="${bookData.items[0].volumeInfo.imageLinks.thumbnail}"></img>`)
+    $title.text(bookData.items[0].volumeInfo.title)
+    $author.text(bookData.items[0].volumeInfo.authors)
+    $synopsis.text(bookData.items[0].volumeInfo.description)
 }
 
 
-
-// constructing url for request
-// make our request
-// render the data
-// grab the submit button, put a click event on it
-// prevent the refresh
-// grab text from input box
 // update the screen
