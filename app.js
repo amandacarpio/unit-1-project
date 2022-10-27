@@ -18,16 +18,30 @@ function authorSearch(event){
     .then((books) => {
         bookData = books
         console.log(bookData)
-        renderBookData()
+        // renderBookData()
+        loopThroughBooks()
     })
 }
 
-function renderBookData(){
-    $bookCover.html(`<img src="${bookData.items[0].volumeInfo.imageLinks.thumbnail}"></img>`)
-    $title.text(bookData.items[0].volumeInfo.title)
-    $author.text(bookData.items[0].volumeInfo.authors)
-    $synopsis.text(bookData.items[0].volumeInfo.description)
+// function renderBookData(){
+//     $bookCover.html(`<img src="${bookData.items[0].volumeInfo.imageLinks.thumbnail}"></img>`)
+//     $title.text(bookData.items[0].volumeInfo.title)
+//     $author.text(bookData.items[0].volumeInfo.authors)
+//     $synopsis.text(bookData.items[0].volumeInfo.description)
+
+// }
+
+function loopThroughBooks(){
+for(let i = 0; i < bookData.items.length; i++){
+    $bookCover.html(`<img src="${bookData.items[i].volumeInfo.imageLinks.thumbnail}"></img>`)
+    $title.text(bookData.items[i].volumeInfo.title)
+    $author.text(bookData.items[i].volumeInfo.authors)
+    $synopsis.text(bookData.items[i].volumeInfo.description)   
+}
 }
 
 
-// update the screen
+// // update the screen
+// loopThroughBooks()
+// $bookCoverEACH = bookData.items.volumeInfo.imageLinks.thumbnail.map((cover) => {
+//     return cover.thumbnail
