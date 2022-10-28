@@ -28,7 +28,6 @@ function authorSearch(event){
 //     $title.text(bookData.items[0].volumeInfo.title)
 //     $author.text(bookData.items[0].volumeInfo.authors)
 //     $synopsis.text(bookData.items[0].volumeInfo.description)
-
 // }
 
 function loopThroughBooks(){
@@ -41,7 +40,37 @@ for(let i = 0; i < bookData.items.length; i++){
 }
 
 
+//for book of books{}
+//const div = div
+//const obj = object//
+
+//obj.name, obj.art, obj.synopis = whatever for each
+//div.append(obj)
+
+
+
+
+
+// bookData.items.volumeInfo.imageLinks.thumbnail.forEach(function(cover) {
+//     console.log(cover);
+// });
+
+// function loopThroughBooks(){
+//     for(let i = 0; i < bookData.items.length; i++){
+//         $bookCover.html(`<img src="${bookData.items[i].volumeInfo.imageLinks.thumbnail}"></img>`)
+//         let list = document.getElementById("bookCover")
+//         bookData.items[i].volumeInfo.imageLinks.thumbnail.array.forEach(cover => {
+//     let div = document.createElement("div");
+//     div.innerText = cover;
+//     main.appendChild(div);
+// });
+
+
 // // update the screen
 // loopThroughBooks()
-// $bookCoverEACH = bookData.items.volumeInfo.imageLinks.thumbnail.map((cover) => {
-//     return cover.thumbnail
+// $bookCoverEACH = bookData.items.volumeInfo.imageLinks.thumbnail.map((cover) => /*
+
+// TO SEARCH THRU LIBRARY
+// ON CLICK FUNCTION
+//URL
+// THE FUNCTION WILL RUN THE LOOP ABOVE AND PRINT ALL BOOKS
