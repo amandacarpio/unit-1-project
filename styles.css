@@ -21,7 +21,7 @@ img {
     margin: auto;
     display: block;
     width: 200px;
-    padding: 70px 70px 40px 70px;
+    padding: 30px 70px 40px 70px;
 }
 
 h4 {
@@ -55,11 +55,47 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+#bookOfWeek {
+margin-top: 40px;
+color: white;
+font-size: 35px;
+}
+
+#bowTitle {
+    font-size: 50px;
+    color: orange;
+}
+
+#bowAuthor {
+    margin-bottom: 40px;
+    color: orange;
+    font-size: 30px;
+}
+
 #splatter {
     width: 600px;
     margin-right: 0px;
 }
 
-@media (max-width: 320px){
-    input[type="submit"] {margin: auto}
+#first {
+    font-size: 40px;
+    color: red;
+}
+
+#second {
+    font-size: 25px;
+    color: white;
+    margin: 15px 550px;
+}
+
+@media (max-width: 420px){ /*max width based on so it adjusts to phone with largest screen size */
+    #submit {
+        margin: auto;
+        width: 50px;
+    }
+
+    #textbox {
+        height: 7px;
+        width: 130px;
+    }
 }

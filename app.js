@@ -2,10 +2,6 @@ const key = 'AIzaSyBjROxJW481jiKnusSJF4g1Lx2b61cY9hQ'
 const baseURL = 'https://www.googleapis.com/books/v1/volumes?'
 let bookData, firstLast
 const $input = $("input[type=text]") // placed text input in a variable to shorten it/easier to read
-const $bookCover = $("#bookCover")
-const $title = $("#title")
-const $author = $("#author")
-const $synopsis = $("#synopsis")
 
 $("form").on("submit", authorSearch)
 
@@ -17,60 +13,25 @@ function authorSearch(event){
     $.ajax(url)
     .then((books) => {
         bookData = books
-        console.log(bookData)
+        // console.log(bookData)
         // renderBookData()
-        loopThroughBooks()
+        // loopThroughBooks(bookData)
+        for(let i = 0; i < bookData.items.length; i++){
+            //create html element with jquery
+            let $divBookCover = $('<div></div>');
+            let $divTitle = $('<div id="first"></div>'); 
+            let $divAuthor = $('<div></div>'); 
+            let $divSynopsis = $('<div id="second"></div>')
+            //set html element contents using jquery
+            $divBookCover.html(`<img src="${bookData.items[i].volumeInfo.imageLinks.thumbnail}"></img>`)
+            $divTitle.html(bookData.items[i].volumeInfo.title)
+            $divAuthor.html(bookData.items[i].volumeInfo.author)
+            $divSynopsis.html(bookData.items[i].volumeInfo.description)
+            //append html element to the dom within the html element where i want my new elements to be created
+            $("section").append($divBookCover)
+            $("section").append($divTitle)
+            $("section").append($divAuthor)
+            $("section").append($divSynopsis)
+        }
     })
 }
-
-// function renderBookData(){
-//     $bookCover.html(`<img src="${bookData.items[0].volumeInfo.imageLinks.thumbnail}"></img>`)
-//     $title.text(bookData.items[0].volumeInfo.title)
-//     $author.text(bookData.items[0].volumeInfo.authors)
-//     $synopsis.text(bookData.items[0].volumeInfo.description)
-// }
-
-function loopThroughBooks(){
-for(let i = 0; i < bookData.items.length; i++){
-    $bookCover.html(`<img src="${bookData.items[i].volumeInfo.imageLinks.thumbnail}"></img>`)
-    $title.text(bookData.items[i].volumeInfo.title)
-    $author.text(bookData.items[i].volumeInfo.authors)
-    $synopsis.text(bookData.items[i].volumeInfo.description)   
-}
-}
-
-
-//for book of books{}
-//const div = div
-//const obj = object//
-
-//obj.name, obj.art, obj.synopis = whatever for each
-//div.append(obj)
-
-
-
-
-
-// bookData.items.volumeInfo.imageLinks.thumbnail.forEach(function(cover) {
-//     console.log(cover);
-// });
-
-// function loopThroughBooks(){
-//     for(let i = 0; i < bookData.items.length; i++){
-//         $bookCover.html(`<img src="${bookData.items[i].volumeInfo.imageLinks.thumbnail}"></img>`)
-//         let list = document.getElementById("bookCover")
-//         bookData.items[i].volumeInfo.imageLinks.thumbnail.array.forEach(cover => {
-//     let div = document.createElement("div");
-//     div.innerText = cover;
-//     main.appendChild(div);
-// });
-
-
-// // update the screen
-// loopThroughBooks()
-// $bookCoverEACH = bookData.items.volumeInfo.imageLinks.thumbnail.map((cover) => /*
-
-// TO SEARCH THRU LIBRARY
-// ON CLICK FUNCTION
-//URL
-// THE FUNCTION WILL RUN THE LOOP ABOVE AND PRINT ALL BOOKS
